@@ -1,0 +1,47 @@
+Introduction
+I'm using curl and IP of this VM is 192.168.8.117
+192.168.0.78
+Port that django using is 8000
+
+1) Let's try to look 
+	curl http://192.168.8.117:8000/api/companies/
+	curl http://192.168.8.117:8000/api/companies/?l=51.108009,17.038486,0.6
+	curl http://192.168.8.117:8000/api/company/3/
+	curl http://192.168.8.117:8000/api/company/3/edit/	<-- only read should work
+	curl http://192.168.8.117:8000/api/codes/
+	curl http://192.168.8.117:8000/api/codes/detail/?search=1
+	curl http://192.168.8.117:8000/api/codes/detail/
+	curl http://192.168.8.117:8000/api/code/1/edit/  <-- only read should work
+
+2) Now, let's add sth without registering/login
+	curl -X POST -H "Content-Type:application/json" -d '{"name": "Curl1","tag1": "taggy", "latitude": 51,375999, "longitude": 17,346456}' 'http://192.168.8.117:8000/api/company/create/?type=post'
+
+	curl -X POST -H "Content-Type:application/json" -d '{"name":"Galeria Dominikanska","codes_amount":100,"logo":null,"photo":null,"latitude":51,10809,"longitude":17,040825,"creator":1,"visible":true}' 'http://192.168.8.117:8000/api/company/3/edit/?type=post'
+
+	sprawdzić dodawanie kodów
+	sprawdzić edycję kodów
+
+3) Ok, now let's register and login on this acc 
+
+	curl -X POST -H "Content-Type:application/json" -d '{"email": "apitest1@account.com","password": "haselko9444"}' 'http://192.168.8.117:8000/api/api/users/register/?type=post'
+
+	b) lets register same account secound time
+		curl -X POST -H "Content-Type:application/json" -d '{"email": "apitest1@account.com","password": "haselko9444"}' 'http://192.168.8.117:8000/api/api/users/register/?type=post'
+
+
+	curl -X POST -H "Content-Type: application/json" -d '{"email":"apitest1@account.com","password":"haselko9444"}' http://192.168.8.117:8000/api/auth/token-auth/
+
+3)Again, chceck if we can look
+
+
+4)Let's create company
+https://youtu.be/jEXQqNtjNJc?t=759
+5)Let's add some codes to my company
+
+6)Let's try add code to not my company
+
+7)Let's try edit not my company
+
+8)And last one, editing not my company code
+
+
